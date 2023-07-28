@@ -39,7 +39,8 @@ app.use(cors());
 //Join Random Room
 
 app.get('/hello', async (req, res) => {
-  res.send("hello")
+  res.send("hello");
+  console.log("hello");
 })
 
 app.post('/jpr', async (req, res) => {
@@ -120,9 +121,7 @@ await subscriber.subscribe('Channel1', (message) => {
           else{
             docRef.doc(json.data.room).update(fieldPath,admin.firestore.FieldValue.delete()); 
           }
-                
         } else {
-            // doc.data() will be undefined in this case
             console.log("No such document!");
         }
     }).catch((error) => {
