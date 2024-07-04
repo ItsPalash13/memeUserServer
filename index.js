@@ -8,11 +8,10 @@ const cors = require('cors');
 const admin = require("firebase-admin");
 
 fireapp = admin.initializeApp({
-  credential: admin.credential.cert({
   "type": "service_account",
   "project_id": "memeloard-4f850",
-  "private_key_id": "faa6debbe442d7dd0fd9f4d892f83950be70dc51",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLHv1y3jQrlQx1\nsncx/hVnCds6Wg9IjF5Drbni0U4exrros8tnuWJABzxUlVwXLCiM6not21ltd4v1\nmniQMFILCywEJ2Fzpt83PiSNddkZRCZ1YOk41KZkwGSt23PmE4LjeBO3l46IXCJ5\ndPxVMDumafoDRkt6r6TrIfwiNUCbT6efx4/mLd9IsMrXKumgXMaqFgxRBGHwJfPp\nuWpv+zhpG1lAW3Jf64E2OVtLYPehWEBnuqytqBo1/zhXH21ROVlCiq0xPOv85/la\n1YQvVBy5Umzam/3+Gga4M9ul0cZjyoygy/4fRhUAfYCWE+HUduWrERGCwIT0XzLG\nkqnI0iepAgMBAAECggEADR2YaHskG79RUWU/cJUzPRbEFuG7VGgp6w1T8CsrM+4J\noh5/7xfnmfJNqTmGu4FQsf6u+niMLvcV7Ls3dzoDhi6HvlHrpzvadHb5BcBbDxhZ\nMmGaVZ7XirBon9hIhM30OOtnPIbW/4ORf024QGjvpRh5Og5nL8oZKEymuu+81vph\nh8BmdANdenIZa5+utodOsNA9tlj/e9cHzvjLctMMsHwxzBi3rEX5/QE0eBvILtL9\nfGzkaWDge9VS4gyEyLQbBRmFJAbEdlEQLtW9PusLfCIrgFKm/ngtcagEDV5nsK2S\nGXDCgUuM67ci6AePvzjZ36+78grzUBfvW2II+ZqK4QKBgQDpekYgfevNex4V94G8\nNcnHoqsjlSYbZ1f4NHpa/xrAOcvDqpxL4e5HV40Y+4Q/oYPSup3YQrlxfqmO01Rw\nqHw4/gQZG4uXOuAr9vhGSmSxmLKVnvsG7DLAB0J6eFGRjDxFhlB+aqIO6eMrHLgU\n2KR72KiofnwGuDbgFjm7I/QoOQKBgQDetw+Z8Ma0m0/l2JeB8gV8J9y6oZnGamet\nViRPqhM1eMYnFpXNAWAawui5tdOYu2oerL3sQGMDt+AnDL6cVmljKa24JvB5N1vv\nk3LD/Ljy0nxSbnsPl+O+DtlKOhI86b++9WhPYcJVeNQJ75kgQMulsdMhcwpSGeb9\nx6jesfaa8QKBgQCVheQxXNNN1iIvaUIhucTO4EN/1z3/YNC6uUj+y89i+eCgH7xW\n8Is8Dzrim/lXEuYsZ6082YaPw9FtEbRLLevYR/1x4u0j3eXA4jqgMXaJMkR0g8s5\n5LyftEaDzlhWwRu8XsdgHoRIzsrYSl0tpIy6b8ebmN1vJDyoiDNSwTTVKQKBgGTN\n2Krllxqh/Yzb9t9jCuaCKF70y+RJvvlutuqz4RPfwVhp2Y27pKMYOzvrN4W2tjaC\nG0h2cBp7vGIQW6npVrQCZlWmkktbKiqKw3Q/y/pkGM86oEqThgo9ME5vcFfPuPEW\npIrhhZMoKFkC8Hzvtv0dOqG2LyKwBKQzHZUGWccRAoGAPrXB05fraZ1rH4e5MS2Q\nnah6Saczns3kl2DhTxTnh+NI7bQsEliVWN7mg6ZHyZLyeT57VckOYCPejaa8PuL4\nBVowTXFpYeAUQjJYX0Z7mhcBE3YgwruqrY+VBtVDVbZp/rSiSoBJHpT6nJnc8yYJ\nCI3RwzkP80sbdAK2SDA8klM=\n-----END PRIVATE KEY-----\n",
+  "private_key_id": "acb333f101fb636251bb1dfc74d16afb3cc70361",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDZA/IJH/xGgXcQ\nz+PUUM+4PcCUquhnuyRzTvx14/3MxpdiA82pAifu432kf2MXKf6S9zVXZimW+s+H\nLDs6Agh0e3LUBSYf1JVenqleBzS45CQtvnLdX70NbMfUs/RZR9pm2wuz0Q8klzA7\nGLIcC5tvq/UqoavNcuSAxh+4dl//z+6flaUaqLUc4BX/eSdriKPJmuB39qlGGMV1\nnDrhZD5sS8kUuGbcKSr8RKIYTlnkh59nW+w8gnawktNCb0gP8Gz/qIeEve6Blb9M\nNg63hHX2mODWP2FQNtU2i0pCMkVf75DZA3suhsyYXTWklsJVt065sCcIkUyi1QO1\nBV+yU30BAgMBAAECggEAJhlAuSRh5DjfX9a3bzM+vGAu+oqkoW1j4VB5FvNPP8+P\njRgQ135250QN7z6j9VGcjU2UEkNvwr9GhrsXrL/lnxl7F8jNoCHwlTtyjXzjXyBC\nT7uTK9Ueeghibq+nErOAHrWO8OMfbvOR9pYH0s+g2rKMKI9Ye4mTnx3pPLefc+fI\n+sShGrnJkEY2cHndKxNHSuSrtesZft1dJGtQ/MhXmdaVerKDFwI+aYdan3rp3MYC\nplNzK/0MzFpcqbc0LgyPDnu3jKRBbANz5nOcJZoAPmoq2Qi7JBiG41M6Zy7zXfah\n2za0CxRd4Iq6Bq/t7i2KHdvhoGOPTrX1uHNGTtnMCQKBgQDxVaQaxjet4wUIvJFb\nTb7mKMi701zdqrdtF5GlToyEWASEwOSGx6MNqWjQswRzNSVaFFbqye1AoVc2fFhe\nLAG1TmEhSIXXO6lSvllF7SglIeDQyyq3J9UO9FQZ0XoRy5+bAxF/nREF0wGkn1o3\nENz2phEmnxHxDKqpDyFhF5KcPQKBgQDmM/rpGMeqB5Bi66fTIGR7nnxEHSr4B8Ol\ng4L7ejoCO5F0BpM1staEexTGcOy7VmWcK6r1gv+jhYt9iGGni7GjaRT6x+kOgv34\nY0lRmjgNIvEP2YQ+5Ku2WmByex/xKhFJEO3k4LemMtlHXOz2pWtosyfAeFWRRTaS\nLOqNeG4cFQKBgBobu78xxoBHWRoS3F7WUFqx+tVnDlrkxydEL3uEverrYsHB5Hc4\nTcmClFZPp6GXFE1keeq4obQmQDsixKSbeivVKOji4afhSnYrJZlNCNTLj3jHIf3i\nj0go4phQczZNoxyv/kqiAV9x7nGS0721U1JTsPNOrjA3wJa9jkzksfW5AoGBAKg7\nGIS8nT2+5V/FRBJgu84zljDY+Avm8K3GnDRXsIjtK3EVVQOLPIX4xMf4wqhtjThC\nGV/uahAAil4lCui8iAcZxkE3UzRNuniJZo2CHLBM9spUdfbYejx7c7x2CnPeAF/b\nRV9cchm9U1h5qprdbM9JDiX0SuQtJqJQvODCQAW5AoGAUOavHNbw2mj6wDkT1NEO\n0xGmc465CA+9UWXVaORh8LasAIm6RQwH7qGmcHkNpZGW/1We6Oja2Zgt1OPKBF5F\n40Re4h8SdJl+AcvFJ1NY8nYHq3MEtMIK/82It8H86trk2CTeAbs1Q4+/VNxYfJ2y\nNpb/DhNlQ2Ze04RAx6tRj3Y=\n-----END PRIVATE KEY-----\n",
   "client_email": "firebase-adminsdk-jj6bw@memeloard-4f850.iam.gserviceaccount.com",
   "client_id": "115976884072956714431",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
@@ -20,7 +19,8 @@ fireapp = admin.initializeApp({
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-jj6bw%40memeloard-4f850.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
-})
+}
+)
 });
 
 const db = admin.firestore();
