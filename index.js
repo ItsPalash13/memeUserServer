@@ -7,7 +7,7 @@ const cors = require('cors');
 
 const admin = require("firebase-admin");
 
-fireapp = admin.initializeApp({
+const serviceAccount={
   "type": "service_account",
   "project_id": "memeloard-4f850",
   "private_key_id": "acb333f101fb636251bb1dfc74d16afb3cc70361",
@@ -20,7 +20,9 @@ fireapp = admin.initializeApp({
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-jj6bw%40memeloard-4f850.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
-)
+
+fireapp = admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
 });
 
 const db = admin.firestore();
